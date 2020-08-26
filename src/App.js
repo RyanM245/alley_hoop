@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "./reset.css";
 import routes from './routes'
-import Nav from './components/nav/nav'
+import Nav from './components/nav/Nav'
 import {withRouter} from 'react-router-dom'
 
 function App(props) {
