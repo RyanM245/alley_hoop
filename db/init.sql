@@ -1,0 +1,21 @@
+CREATE TABLE players
+(
+player_id SERIAL PRIMARY KEY,
+username VARCHAR(50) NOT NULL,
+password TEXT NOT NULL,
+email VARCHAR(500) NOT NULL,
+pic TEXT NOT NULL
+);
+
+
+CREATE TABLE games
+(
+game_id SERIAL PRIMARY KEY,
+player_id INT REFERENCES players(player_id) NOT NULL,
+address VARCHAR(150) NOT NULL,
+city VARCHAR(100) NOT NULL,
+state_abbrev VARCHAR (2) NOT NULL,
+date VARCHAR(30) NOT NULL,
+time VARCHAR(10) NOT NULL
+);
+
