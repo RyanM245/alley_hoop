@@ -112,7 +112,7 @@ const Login = (props) => {
                 setToggle(!toggle);
               }}
             >
-              Signup 
+              Signup
             </button>
           </>
         ) : (

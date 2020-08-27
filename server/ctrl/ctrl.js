@@ -8,7 +8,7 @@ module.exports = {
     const db = req.app.get("db");
     const { address, city, state_abbrev, date, time } = req.body;
 
-    db.create_product([address, city, state_abbrev, date, time])
+    db.create_games([address, city, state_abbrev, date, time])
       .then(() => res.sendStatus(200))
       .catch((err) => {
         res.status(500).send({ errorMessage: "We will get right on that!" });

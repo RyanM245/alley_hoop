@@ -1,17 +1,17 @@
 import React from "react";
 import "./App.css";
 import "./reset.css";
-import routes from './routes'
-import Nav from './components/nav/Nav'
-import {withRouter} from 'react-router-dom'
+import routes from "./routes";
+import Nav from "./components/nav/Nav";
+import { withRouter } from "react-router-dom";
 
 function App(props) {
-  return <div className="App">
-   {props.location.pathname !== '/' ? 
-      <Nav /> : null}
+  return (
+    <div className="App">
+      {props.location.pathname !== "/" ? <Nav /> : null}
       {routes}
-
-  </div>;
+    </div>
+  );
 }
 
 export default withRouter(App);
