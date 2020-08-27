@@ -112,7 +112,7 @@ const Login = (props) => {
                 setToggle(!toggle);
               }}
             >
-              Haven't signed up? Click to register
+              Signup 
             </button>
           </>
         ) : (
@@ -123,7 +123,7 @@ const Login = (props) => {
                 setToggle(!toggle);
               }}
             >
-              Already signed up? Click to login
+              Go Back
             </button>
           </>
         )}
