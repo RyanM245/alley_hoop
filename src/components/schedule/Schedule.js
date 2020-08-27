@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Schedule = () => {
+
+
+const Schedule = (props) => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
@@ -13,6 +17,9 @@ const Schedule = () => {
   const handleCityInput = (e) => {
     setCity(e.target.value);
   };
+  const handleStateInput = (e) => {
+    setState(e.target.value);
+  };
   const handleDateInput = (e) => {
     setDate(e.target.value);
   };
@@ -20,7 +27,22 @@ const Schedule = () => {
     setTime(e.target.value);
   };
 
-  const createGame = () => {};
+  const createGame = () => {
+    axios
+      .post("/games/create", {
+        address: address,
+        city: city,
+        state_abbrev: state,
+        date: date,
+        time: time,
+      })
+      .then((res) => {
+        props.history.push("/games");
+      })
+      .catch((err) => {
+        alert("Try again");
+      });
+  };
 
   return (
     <div>
@@ -39,6 +61,12 @@ const Schedule = () => {
           placeholder="City..."
         />
         <input
+          name="state"
+          value={state}
+          onChange={handleStateInput}
+          placeholder="State..."
+        />
+        <input
           name="date"
           value={date}
           onChange={handleDateInput}
@@ -54,7 +82,7 @@ const Schedule = () => {
       <div>
         <button
           onClick={() => {
-            createGame;
+            createGame();
           }}
         >
           Schedule Game
@@ -66,5 +94,6 @@ const Schedule = () => {
     </div>
   );
 };
+
 
 export default Schedule;

@@ -9,14 +9,14 @@ const Nav = (props) => {
 
   useEffect(() => {
     props.getPlayer();
-  },[]);
+  }, []);
 
   const logout = () => {
     axios
       .get("/auth/logout")
       .then((res) => {
         props.logoutPlayer();
-        props.history.push("/");
+        // props.history.push("/");
       })
       .catch((err) => console.log(err));
   };
@@ -31,10 +31,10 @@ const Nav = (props) => {
       <div onClick={() => setToggle(!toggle)}>&#9776;</div>
       {toggle ? (
         <nav>
-          <span onClick = {()=>setToggle(!toggle)}>
+          <span onClick={() => setToggle(!toggle)}>
             <Link to="/games">Home</Link>
           </span>
-          <span onClick = {()=>setToggle(!toggle)}>
+          <span onClick={() => setToggle(!toggle)}>
             <Link to="/profile">Profile</Link>
           </span>
           <span onClick={logout}>
