@@ -14,6 +14,7 @@ module.exports = {
         req.session.user = {
           playerId: user[0].player_id,
           username: user[0].username,
+          email: user[0].email,
           pic: user[0].pic,
         };
         res.status(200).send(req.session.user);
@@ -32,6 +33,7 @@ module.exports = {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
     const newUser = await db.create_player([username, hash,email, pic]);
+    console.log(newUser)
     req.session.user = {
       playerId: newUser[0].player_id,
       username: newUser[0].username,

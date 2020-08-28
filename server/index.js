@@ -38,5 +38,6 @@ app.get("/auth/player", authCtrl.getPlayer);
 //---------Games-------
 app.get("/games/getall", ctrl.getAll);
 app.post("/games/create", ctrl.create);
+app.get("/games/playergames/:id", ctrl.getPlayerGames)
 
 app.listen(SERVER_PORT, () => console.log(`Connected to port ${SERVER_PORT}`));

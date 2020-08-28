@@ -16,4 +16,14 @@ module.exports = {
         console.log(err);
       });
   },
+  getPlayerGames: (req, res, next) => {
+    const db = req.app.get("db");
+    const { playerId } = req.params;
+    db.get_player_games(playerId)
+      .then((playerGames) => res.status(200).send(playerGames))
+      .catch((err) => {
+        res.status(500).send({ errorMessage: "We will get right on that!" });
+        console.log(err);
+      });
+  },
 };
