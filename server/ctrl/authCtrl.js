@@ -53,4 +53,18 @@ module.exports = {
       res.status(404).send(`Get Player`);
     }
   },
+  edit: async (req, res) => {
+    const { username, email, pic } = req.body;
+    const { id } = req.params;
+    const db = req.app.get("db");
+
+    const products = await db.edit_player({
+      username,
+      email,
+      pic,
+      player_id: id,
+    });
+
+    res.status(200).send(products);
+  },
 };

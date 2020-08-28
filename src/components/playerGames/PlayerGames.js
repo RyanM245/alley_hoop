@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+
 
 const PlayerGames = (props) => {
   return (
@@ -12,13 +12,10 @@ const PlayerGames = (props) => {
         <h1>Time: {props.data.time}</h1>
       </div>
       <div>
-        <img src={props.player.pic}/>
         <button>Edit</button>
       </div>
     </div>
   );
 };
-const mapStateToProps = (state) => state;
 
-export default connect(mapStateToProps)(Profile);
-
+export default PlayerGames;

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import Game from "../game/Game";
+import PlayerGames from "../playerGames/PlayerGames";
 
 const Profile = (props) => {
   const [games, setGames] = useState([]);
-
 
   useEffect(() => {
     console.log(props);
@@ -19,11 +18,20 @@ const Profile = (props) => {
       });
   }, []);
 
+//   const edit = (id, username, email, pic) => {
+//     axios
+//       .put(`/auth/player/${id}`, { username, email, pic })
+//       .then((res) => {
+//         setPlayer(res.data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
 
   const mappedPlayerGames = games.map((el, i) => {
-    return <Game data={el} key={i} />;
+    return <PlayerGames data={el} key={i} />;
   });
-
 
   return (
     <div>
