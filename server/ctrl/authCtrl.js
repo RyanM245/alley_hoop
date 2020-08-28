@@ -33,7 +33,7 @@ module.exports = {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
     const newUser = await db.create_player([username, hash,email, pic]);
-    console.log(newUser)
+    // console.log(newUser)
     req.session.user = {
       playerId: newUser[0].player_id,
       username: newUser[0].username,

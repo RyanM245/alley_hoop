@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import Game from "../game/Game";
 
 const Profile = (props) => {
   const [games, setGames] = useState([]);
+
+
   useEffect(() => {
-    console.log(props.player)
+    console.log(props);
     axios
       .get(`/games/playergames/${props.player.playerId}`)
       .then((res) => {
@@ -16,22 +19,28 @@ const Profile = (props) => {
       });
   }, []);
 
+
+  const mappedPlayerGames = games.map((el, i) => {
+    return <Game data={el} key={i} />;
+  });
+
+
   return (
     <div>
       <h1>MyProfile</h1>
       <div>
-        <img src= {props.player.pic}/>
+        <img alt="Profile Pic" src={props.player.pic} />
         <button>Edit Pic</button>
       </div>
       <div>
-  <h2>Username:{props.player.username}</h2>
-  <h2>Email:{props.player.email}</h2>
-    
+        <h2>Username:{props.player.username}</h2>
+        <h2>Email:{props.player.email}</h2>
+
         <button>Edit info</button>
         <button>Save</button>
       </div>
       <h1>My Scheduled Games</h1>
-      <div></div>
+      <div>{mappedPlayerGames}</div>
     </div>
   );
 };
