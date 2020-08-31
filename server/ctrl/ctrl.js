@@ -28,4 +28,20 @@ module.exports = {
       console.log(err);
     }
   },
+  editGame: async (req, res, next) => {
+    const { address,city,state_abbrev,date,time } = req.body;
+    const { id } = req.params;
+    const db = req.app.get("db");
+
+    const [game] = await db.edit_game({
+      address,
+      city,
+      state_abbrev,
+      date,
+      time,
+      game_id: id,
+    });
+
+    res.status(200).send(game);
+  },
 };

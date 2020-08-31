@@ -36,10 +36,10 @@ app.post("/auth/register", authCtrl.register);
 app.get("/auth/logout", authCtrl.logout);
 app.get("/auth/player", authCtrl.getPlayer);
 app.put("/auth/player/:id", authCtrl.edit)
-// app.delete("/auth/player/:id", authCtrl.delete)
 //---------Games-------
 app.get("/games/getall", ctrl.getAll);
 app.post("/games/create", ctrl.create);
 app.get("/games/playergames/:id", ctrl.getPlayerGames)
+app.put("/games/player/:id", ctrl.editGame)
 
 app.listen(SERVER_PORT, () => console.log(`Connected to port ${SERVER_PORT}`));
