@@ -58,13 +58,13 @@ module.exports = {
     const { id } = req.params;
     const db = req.app.get("db");
 
-    const products = await db.edit_player({
+    const [player] = await db.edit_player({
       username,
       email,
       pic,
       player_id: id,
     });
 
-    res.status(200).send(products);
+    res.status(200).send(player);
   },
 };
