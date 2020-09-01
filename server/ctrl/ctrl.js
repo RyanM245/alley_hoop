@@ -29,7 +29,7 @@ module.exports = {
     }
   },
   editGame: async (req, res, next) => {
-    const { address,city,state_abbrev,date,time } = req.body;
+    const { address, city, state_abbrev, date, time } = req.body;
     const { id } = req.params;
     const db = req.app.get("db");
 
@@ -41,6 +41,14 @@ module.exports = {
       time,
       game_id: id,
     });
+
+    res.status(200).send(game);
+  },
+  deleteGame: async (req, res, next) => {
+    const { id } = req.params;
+    const db = req.app.get("db");
+
+    const game = await db.delete_game([id]);
 
     res.status(200).send(game);
   },

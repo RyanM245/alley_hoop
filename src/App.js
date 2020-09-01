@@ -1,17 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./App.css";
 import "./reset.css";
 import routes from "./routes";
 import Nav from "./components/nav/Nav";
-import { withRouter } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import {connect} from "react-redux"
+import {getPlayer} from "./ducks/reducer" 
 
-function App(props) {
+const App= (props)=> {
+  const {pathname}= useLocation();
+useEffect(()=>{
+props.getPlayer()
+},[])
+
   return (
     <div className="App">
-      {props.location.pathname !== "/" ? <Nav /> : null}
+      {pathname !== "/" ? <Nav /> : null}
       {routes}
     </div>
   );
 }
+const mapStateToProps = (state) => state;
 
-export default withRouter(App);
+export default connect(mapStateToProps, {getPlayer})(App);

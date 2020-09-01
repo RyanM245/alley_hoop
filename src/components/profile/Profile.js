@@ -2,13 +2,22 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import PlayerGames from "../playerGames/PlayerGames";
+import {loginPlayer} from '../../ducks/reducer'
 
 const Profile = (props) => {
   const [games, setGames] = useState([]);
-  const [username, setUsername] = useState(props.player.username);
-  const [email, setEmail] = useState(props.player.email);
-  const [pic, setPic] = useState(props.player.pic);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [pic, setPic] = useState('');
   const [proToggle, setProToggle] = useState(false);
+
+
+  useEffect(()=> {
+setUsername(props.reducer.player.username)
+setEmail(props.reducer.player.email)
+setPic(props.reducer.player.pic)
+  },[props.reducer.player])
+  // console.log(props)
 
   const handleUsernameInput = (e) => {
     setUsername(e.target.value);
@@ -22,28 +31,40 @@ const Profile = (props) => {
 
   useEffect(() => {
     // console.log(props);
-    if (props.player.playerId) {
-      axios
-        .get(`/games/playergames/${props.player.playerId}`)
-        .then((res) => {
-          setGames(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    if (props.reducer.player.playerId) {
+      getPlayerGames();
     }
-  }, [props.player.playerId]);
+  }, [props.reducer.player.playerId]);
+
+
+  const getPlayerGames = () => {
+    axios
+      .get(`/games/playergames/${props.reducer.player.playerId}`)
+      .then((res) => {
+        setGames(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const saveEdit = (id, username, email, pic) => {
     // console.log(id);
     axios
       .put(`/auth/player/${id}`, { username, email, pic })
       .then((res) => {
-        setUsername(res.data.username);
-        setEmail(res.data.email);
-        setPic(res.data.pic);
-        // console.log(res.data);
-        setProToggle(!proToggle)
+        props.loginPlayer(res.data);
+        setProToggle(!proToggle);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const deleteGame = (id) => {
+    axios
+      .delete(`/games/player/${id}`)
+      .then((res) => {
+        getPlayerGames();
       })
       .catch((err) => {
         console.log(err);
@@ -51,7 +72,7 @@ const Profile = (props) => {
   };
 
   const mappedPlayerGames = games.map((el, i) => {
-    return <PlayerGames data={el} key={i} />;
+    return <PlayerGames data={el} key={el.game_id} deleteGame={deleteGame} />;
   });
 
   return (
@@ -93,7 +114,13 @@ const Profile = (props) => {
                 onChange={handleEmailInput}
               />
             </div>
-            <button  onClick={()=>saveEdit(props.player.playerId, username, email, pic)} >Save</button>
+            <button
+              onClick={() =>
+                saveEdit(props.reducer.player.playerId, username, email, pic)
+              }
+            >
+              Save
+            </button>
             <button onClick={() => setProToggle(!proToggle)}>Go Back</button>
           </div>
         )}
@@ -105,5 +132,6 @@ const Profile = (props) => {
 };
 
 const mapStateToProps = (state) => state;
+// const mapStateToProps = (state) => ({player: state.reducer.player});
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, {loginPlayer})(Profile);

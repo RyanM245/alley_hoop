@@ -30,13 +30,19 @@ const PlayerGames = (props) => {
   const saveEdit = (id, address, city, state, date, time) => {
     // console.log(id);
     axios
-      .put(`/games/player/${id}`, {address, city, state_abbrev: state, date, time})
+      .put(`/games/player/${id}`, {
+        address,
+        city,
+        state_abbrev: state,
+        date,
+        time,
+      })
       .then((res) => {
         setAddress(res.data.address);
         setCity(res.data.city);
         setState(res.data.state_abbrev);
-        setDate(res.data.date)
-        setTime(res.data.time)
+        setDate(res.data.date);
+        setTime(res.data.time);
         setToggle(!toggle);
         // console.log(res.data);
       })
@@ -45,6 +51,7 @@ const PlayerGames = (props) => {
       });
   };
 
+// console.log(props.data.game_id)
   return (
     <div>
       {!toggle ? (
@@ -58,7 +65,7 @@ const PlayerGames = (props) => {
           </div>
           <div>
             <button onClick={() => setToggle(!toggle)}>Edit</button>
-            <button>Delete</button>
+            <button onClick={()=> props.deleteGame(props.data.game_id)}>Delete</button>
           </div>
         </div>
       ) : (
@@ -97,7 +104,13 @@ const PlayerGames = (props) => {
           </div>
           <div>
             <button onClick={() => setToggle(!toggle)}>Go Back</button>
-            <button onClick= {()=>saveEdit(props.data.game_id, address, city, state, date, time)}>Save</button>
+            <button
+              onClick={() =>
+                saveEdit(props.data.game_id, address, city, state, date, time)
+              }
+            >
+              Save
+            </button>
           </div>
         </div>
       )}

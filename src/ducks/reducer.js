@@ -40,6 +40,7 @@ export default function (state = initialState, action) {
     case GET_PLAYER + "_PENDING":
       return state;
     case GET_PLAYER + "_FULFILLED":
+      console.log(action)
       return { ...state, player: action.payload.data, isLoggedIn: true };
     case GET_PLAYER + "_REJECTED":
       return initialState;
