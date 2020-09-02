@@ -1,2 +1,52 @@
-@import "../../scss/base"
+@import "../../scss/base";
 
+body {
+  @include flexLayout;
+  height: 736px;
+  width: 414px;
+  background-color: $dark-gray;
+  font-family: $font-roboto;
+}
+.greeting {
+  height: 200px;
+  width: 250px;
+  @include flexLayout;
+}
+.main-heading {
+  color: $light-gray;
+  font-size: 36px;
+  @include flexLayout;
+  
+}
+
+.main-login {
+  background-color: $blue;
+  height: 500px;
+  width: 250px;
+  @include flexLayout;
+  margin-bottom: 50px;
+  @include card;
+  flex-direction: column;
+}
+
+button {
+  @include card;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: $light-yellow;
+  color: $dark-gray;
+  width: 75px;
+  height: 50px;
+}
+
+input {
+  @include card;
+  background-color: $dark-gray;
+  color: $light-gray;
+  margin-top: 20px;
+  text-align: center;
+  border-width: 0;
+  width: 150px;
+  height: 40px;
+}

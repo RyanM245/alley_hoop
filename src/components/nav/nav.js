@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutPlayer, getPlayer } from "../../ducks/reducer";
 import axios from "axios";
+import "./Nav.css"
+import MenuIcon from '../MenuIcon'
 
 const Nav = (props) => {
   const [toggle, setToggle] = useState(false);
@@ -22,15 +24,16 @@ const Nav = (props) => {
   };
 
   return (
-    <div>
+    <div className = 'nav-main'>
       <img
+      className="logo-img"
         alt="Logo"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSilC7N-AsDXEGBNiKpMdTxUehiR-_kF9tvLg&usqp=CAU"
       />
-      <h1>Alley-Hoop</h1>
-      <div onClick={() => setToggle(!toggle)}>&#9776;</div>
+      <h1 className='head-text'>Alley-Hoop</h1>
+      <div className='ham-menu' onClick={() => setToggle(!toggle)}>{<MenuIcon/>}</div>
       {toggle ? (
-        <nav>
+        <nav className="mobile-toggle">
           <span onClick={() => setToggle(!toggle)}>
             <Link to="/games">Home</Link>
           </span>

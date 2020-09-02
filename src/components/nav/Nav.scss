@@ -1,0 +1,32 @@
+@import "../../scss/base";
+
+.nav-main {
+  position: absolute;
+  top: 5px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-start;
+  height: 75px;
+  width: 100vw;
+}
+.head-text {
+  font-size: 24px;
+  color: $light-gray;
+}
+.ham-menu {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  background-color: $dark-yellow;
+  @include card;
+  position: relative;
+  top: 0px;
+  right: 0px;
+}
+.logo-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  opacity: 0.5;
+  margin-left: 10px;
+}

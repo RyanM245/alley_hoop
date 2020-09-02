@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { loginPlayer } from "../../ducks/reducer";
 import { connect } from "react-redux";
-import "./Login.css"
-
+import "./Login.css";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -59,55 +58,57 @@ const Login = (props) => {
 
   return (
     <div>
-      <h1>Welcome to Alley-Hoop</h1>
-      {toggle ? (
-        <div>
-          <input
-            name="username"
-            placeholder="Username"
-            value={username}
-            onChange={handleUsernameInput}
-          />
-          <input
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordInput}
-            type="password"
-          />
-        </div>
-      ) : (
-        <div>
-          <input
-            name="username"
-            placeholder="Username"
-            value={username}
-            onChange={handleUsernameInput}
-          />
-          <input
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordInput}
-            type="password"
-          />
-          <input
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleEmailInput}
-          />
-          <input
-            name="pic"
-            placeholder="Profile Pic URL"
-            value={pic}
-            onChange={handlePicInput}
-          />
-        </div>
-      )}
-      <div>
+      <div className="greeting">
+        <h1 className="main-heading">Welcome to Alley-Hoop</h1>
+      </div>
+      <div className="main-login">
         {toggle ? (
-          <>
+          <div>
+            <input
+              name="username"
+              placeholder="Username..."
+              value={username}
+              onChange={handleUsernameInput}
+            />
+            <input
+              name="password"
+              placeholder="Password..."
+              value={password}
+              onChange={handlePasswordInput}
+              type="password"
+            />
+          </div>
+        ) : (
+          <div>
+            <input
+              name="username"
+              placeholder="Username..."
+              value={username}
+              onChange={handleUsernameInput}
+            />
+            <input
+              name="password"
+              placeholder="Password..."
+              value={password}
+              onChange={handlePasswordInput}
+              type="password"
+            />
+            <input
+              name="email"
+              placeholder="Email..."
+              value={email}
+              onChange={handleEmailInput}
+            />
+            <input
+              name="pic"
+              placeholder="Profile Pic URL..."
+              value={pic}
+              onChange={handlePicInput}
+            />
+          </div>
+        )}
+        {toggle ? (
+          <div>
             <button onClick={login}>Login</button>
             <button
               onClick={() => {
@@ -116,9 +117,9 @@ const Login = (props) => {
             >
               Signup
             </button>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <button onClick={register}>Register</button>
             <button
               onClick={() => {
@@ -127,7 +128,7 @@ const Login = (props) => {
             >
               Go Back
             </button>
-          </>
+          </div>
         )}
       </div>
     </div>
