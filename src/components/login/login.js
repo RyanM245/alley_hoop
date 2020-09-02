@@ -57,7 +57,7 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className='login'>
       <div className="greeting">
         <h1 className="main-heading">Welcome to Alley-Hoop</h1>
       </div>

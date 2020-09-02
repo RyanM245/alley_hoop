@@ -31,17 +31,17 @@ const Nav = (props) => {
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSilC7N-AsDXEGBNiKpMdTxUehiR-_kF9tvLg&usqp=CAU"
       />
       <h1 className='head-text'>Alley-Hoop</h1>
-      <div className='ham-menu' onClick={() => setToggle(!toggle)}>{<MenuIcon/>}</div>
+      <div className='ham-menu' onClick={() => setToggle(!toggle)}><MenuIcon/></div>
       {toggle ? (
         <nav className="mobile-toggle">
           <span onClick={() => setToggle(!toggle)}>
-            <Link to="/games">Home</Link>
+            <Link className='mo' to="/games">Home</Link>
           </span>
           <span onClick={() => setToggle(!toggle)}>
-            <Link to="/profile">Profile</Link>
+            <Link className='mo' to="/profile">Profile</Link>
           </span>
           <span onClick={logout}>
-            <Link to="/">Logout</Link>
+            <Link className='mo' to="/">Logout</Link>
           </span>
         </nav>
       ) : null}

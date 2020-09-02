@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.new-game {
+  text-decoration: none;
+}
+
+.game-maker, .games {
+  margin-bottom: 25px;
+}
+/*# sourceMappingURL=Games.css.map */

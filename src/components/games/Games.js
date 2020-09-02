@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Game from "../game/Game";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import './Games.css'
 
 const Games = () => {
   const [games, setGames] = useState([]);
@@ -24,12 +24,11 @@ const Games = () => {
 
   return (
     <div>
-      <div>
-        <button><Link to= "/schedule">Schedule Game</Link></button>
+      <div className='game-maker'>
+        <button><Link className='new-game' to= "/schedule">Schedule Game</Link></button>
       </div>
       <div>
-        <input placeholder = "Search Games..." />
-        <button>Find Games</button>
+       <h1 className="main-heading games">Games!</h1>
       </div>
       <div>{mappedGames}</div>
     </div>

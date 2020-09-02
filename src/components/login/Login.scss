@@ -1,11 +1,14 @@
 @import "../../scss/base";
 
 body {
-  @include flexLayout;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   height: 736px;
   width: 414px;
   background-color: $dark-gray;
   font-family: $font-roboto;
+  font-weight: bold;
 }
 .greeting {
   height: 200px;
@@ -16,7 +19,6 @@ body {
   color: $light-gray;
   font-size: 36px;
   @include flexLayout;
-  
 }
 
 .main-login {
