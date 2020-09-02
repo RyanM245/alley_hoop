@@ -2,7 +2,12 @@
 
 .new-game{
     text-decoration: none;
+    color: $dark-gray;
 }
 .game-maker, .games{
     margin-bottom: 25px;
+}
+.mapped-game-holder{
+@include flexLayout;
+flex-direction: column;
 }

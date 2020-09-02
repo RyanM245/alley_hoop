@@ -1,0 +1,14 @@
+@import "../../scss/base";
+
+.game-holder{
+    @include flexLayout;
+    flex-direction: column;
+    @include card;
+    margin-bottom: 35px;
+    height: 175px;
+    width: 250px;
+    background-color: $blue;
+}
+.game-list{
+    margin-bottom: 3px;
+}

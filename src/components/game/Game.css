@@ -4,16 +4,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-.new-game {
-  text-decoration: none;
-  color: #2c3531;
-}
-
-.game-maker, .games {
-  margin-bottom: 25px;
-}
-
-.mapped-game-holder {
+.game-holder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,5 +18,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-bottom: 35px;
+  height: 175px;
+  width: 250px;
+  background-color: #116466;
 }
-/*# sourceMappingURL=Games.css.map */
+
+.game-list {
+  margin-bottom: 3px;
+}
+/*# sourceMappingURL=Game.css.map */

@@ -30,7 +30,7 @@ const Games = () => {
       <div>
        <h1 className="main-heading games">Games!</h1>
       </div>
-      <div>{mappedGames}</div>
+      <div className='mapped-game-holder'>{mappedGames}</div>
     </div>
   );
 };
