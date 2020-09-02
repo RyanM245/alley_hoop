@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { loginPlayer } from "../../ducks/reducer";
 import { connect } from "react-redux";
+import "./Login.css"
+
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
