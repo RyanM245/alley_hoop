@@ -3,6 +3,7 @@
 .new-game{
     text-decoration: none;
     color: $dark-gray;
+
 }
 .game-maker, .games{
     margin-bottom: 25px;
@@ -11,3 +12,4 @@
 @include flexLayout;
 flex-direction: column;
 }
+

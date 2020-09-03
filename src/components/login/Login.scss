@@ -6,8 +6,9 @@ body {
   align-items: flex-start;
   height: 736px;
   width: 414px;
-  background-color: $dark-gray; 
+  background-color: $dark-gray;
 }
+
 .greeting {
   height: 200px;
   width: 250px;
@@ -38,6 +39,7 @@ button {
   color: $dark-gray;
   width: 75px;
   height: 50px;
+  cursor: pointer;
 }
 
 input {
@@ -50,6 +52,4 @@ input {
   width: 150px;
   height: 40px;
   font-size: 16px;
-
-  :hover
 }

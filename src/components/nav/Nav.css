@@ -16,7 +16,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 75px;
-  width: 100vw;
+  width: 414px;
 }
 
 .head-text {
@@ -43,7 +43,7 @@
 }
 
 .mobile-toggle {
-  position: fixed;
+  position: absolute;
   top: 65px;
   right: 10px;
   height: 150px;
@@ -68,6 +68,7 @@
 }
 
 .mo {
+  display: initial;
   text-decoration: none;
   text-align: center;
   display: -webkit-box;
@@ -90,5 +91,83 @@
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+}
+
+.desktop-menu {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .mobile-toggle,
+  .ham-menu {
+    display: none;
+  }
+  body {
+    height: 920px;
+    width: 1280px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .desktop-menu {
+    display: initial;
+    height: 100%;
+    width: 30%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .d-mo {
+    text-decoration: none;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 35px;
+    width: 92px;
+    color: #d9b08c;
+    background-color: #116466;
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    margin-left: 10px;
+  }
+  .nav-main {
+    width: 1280px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .head-text {
+    font-size: 50px;
+    margin-left: 330px;
+  }
+  button {
+    width: 100px;
+    height: 75px;
+    font-size: 20px;
+  }
+  .text {
+    color: #d9b08c;
+    font-size: 26px;
+  }
 }
 /*# sourceMappingURL=Nav.css.map */
