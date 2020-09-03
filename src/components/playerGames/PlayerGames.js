@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./PlayerGames.css";
+
 
 const PlayerGames = (props) => {
   const [toggle, setToggle] = useState(false);
@@ -53,15 +55,15 @@ const PlayerGames = (props) => {
 
 // console.log(props.data.game_id)
   return (
-    <div>
+    <div className='myGame'>
       {!toggle ? (
-        <div>
+        <div className='myGame-info'>
           <div>
-            <h1>Address: {address}</h1>
-            <h1>City: {city}</h1>
-            <h1>State: {state}</h1>
-            <h1>Date: {date}</h1>
-            <h1>Time: {time}</h1>
+            <h1 className='text my-game-data'>City: {city}</h1>
+            <h1 className='text my-game-data'>Address: {address}</h1>
+            <h1 className='text my-game-data'>State: {state}</h1>
+            <h1 className='text my-game-data'>Date: {date}</h1>
+            <h1 className='text my-game-data'>Time: {time}</h1>
           </div>
           <div>
             <button onClick={() => setToggle(!toggle)}>Edit</button>
@@ -69,8 +71,8 @@ const PlayerGames = (props) => {
           </div>
         </div>
       ) : (
-        <div>
-          <div>
+        <div className='myGame-info'>
+          <div className='mygame-input'>
             <input
               name="address"
               value={address}

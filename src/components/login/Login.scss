@@ -6,9 +6,7 @@ body {
   align-items: flex-start;
   height: 736px;
   width: 414px;
-  background-color: $dark-gray;
-  font-family: $font-roboto;
-  font-weight: bold;
+  background-color: $dark-gray; 
 }
 .greeting {
   height: 200px;
@@ -51,4 +49,7 @@ input {
   border-width: 0;
   width: 150px;
   height: 40px;
+  font-size: 16px;
+
+  :hover
 }

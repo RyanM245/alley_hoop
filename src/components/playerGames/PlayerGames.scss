@@ -1,0 +1,25 @@
+@import "../../scss/base";
+
+.myGame{
+    background-color: $blue;
+    height: 400px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 50px;
+    @include card;
+    margin-top: 20px;
+}
+.myGame-info{
+    height: 350px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.my-game-data{
+    margin-top: 10px;
+}

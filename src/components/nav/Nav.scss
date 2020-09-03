@@ -1,8 +1,6 @@
 @import "../../scss/base";
 
 .nav-main {
-  // position: fixed;
-  // top: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,9 +17,6 @@
   margin-right: 10px;
   background-color: $dark-yellow;
   @include card;
-  // position: relative;
-  // top: 0px;
-  // right: 0px;
 }
 .logo-img {
   height: 50px;
@@ -40,7 +35,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  // opacity: 0.8;
   background-color: $dark-yellow;
   @include card;
 }

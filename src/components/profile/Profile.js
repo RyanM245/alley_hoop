@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import PlayerGames from "../playerGames/PlayerGames";
-import {loginPlayer} from '../../ducks/reducer'
+import { loginPlayer } from "../../ducks/reducer";
+import "./Profile.css";
 
 const Profile = (props) => {
   const [games, setGames] = useState([]);
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [pic, setPic] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [pic, setPic] = useState("");
   const [proToggle, setProToggle] = useState(false);
 
-
-  useEffect(()=> {
-setUsername(props.reducer.player.username)
-setEmail(props.reducer.player.email)
-setPic(props.reducer.player.pic)
-  },[props.reducer.player])
+  useEffect(() => {
+    setUsername(props.reducer.player.username);
+    setEmail(props.reducer.player.email);
+    setPic(props.reducer.player.pic);
+  }, [props.reducer.player]);
   // console.log(props)
 
   const handleUsernameInput = (e) => {
@@ -35,7 +35,6 @@ setPic(props.reducer.player.pic)
       getPlayerGames();
     }
   }, [props.reducer.player.playerId]);
-
 
   const getPlayerGames = () => {
     axios
@@ -76,25 +75,23 @@ setPic(props.reducer.player.pic)
   });
 
   return (
-    <div>
-      <h1>MyProfile</h1>
-      <div>
+    <div className="profile-main">
+      <h1 className="sch-greeting">MyProfile</h1>
+      <div className="myProfile">
         {!proToggle ? (
-          <div>
-            <div>
-              <img alt="Profile Pic" src={pic} />
-            </div>
-            <div>
-              <h2>Username:{username}</h2>
-              <h2>Email:{email}</h2>
-              <button onClick={() => setProToggle(!proToggle)}>
-                Edit Profile
-              </button>
-            </div>
+          <div className="pro-info">
+            <img alt="Profile Pic" src={pic} className="pro-img" />
+
+            <h2 className='text'>Username:{username}</h2>
+            <h2 className='text'>Email:{email}</h2>
+
+            <button onClick={() => setProToggle(!proToggle)}>
+              Edit Profile
+            </button>
           </div>
         ) : (
-          <div>
-            <div>
+          <div className="pro-info">
+            <div className='pro-in'>
               <input
                 name="pic"
                 placeholder="New Profile Pic URL..."
@@ -114,6 +111,7 @@ setPic(props.reducer.player.pic)
                 onChange={handleEmailInput}
               />
             </div>
+            <div className='pro-btn'>
             <button
               onClick={() =>
                 saveEdit(props.reducer.player.playerId, username, email, pic)
@@ -122,10 +120,11 @@ setPic(props.reducer.player.pic)
               Save
             </button>
             <button onClick={() => setProToggle(!proToggle)}>Go Back</button>
+            </div>
           </div>
         )}
       </div>
-      <h1>My Scheduled Games</h1>
+      <h1 className="sch-greeting">My Scheduled Games</h1>
       <div>{mappedPlayerGames}</div>
     </div>
   );
@@ -134,4 +133,4 @@ setPic(props.reducer.player.pic)
 const mapStateToProps = (state) => state;
 // const mapStateToProps = (state) => ({player: state.reducer.player});
 
-export default connect(mapStateToProps, {loginPlayer})(Profile);
+export default connect(mapStateToProps, { loginPlayer })(Profile);

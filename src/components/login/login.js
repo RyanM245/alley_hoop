@@ -59,7 +59,7 @@ const Login = (props) => {
   return (
     <div className='login'>
       <div className="greeting">
-        <h1 className="main-heading">Welcome to Alley-Hoop</h1>
+        <h1 className="main-heading">Welcome to Alley-Hoop!</h1>
       </div>
       <div className="main-login">
         {toggle ? (

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-
+import "./Schedule.css";
 
 const Schedule = (props) => {
   const [address, setAddress] = useState("");
@@ -46,54 +45,56 @@ const Schedule = (props) => {
 
   return (
     <div>
-      <h1>Let's Hoop!</h1>
-      <div>
-        <input
-          name="address"
-          value={address}
-          onChange={handleAddressInput}
-          placeholder="Address..."
-        />
-        <input
-          name="city"
-          value={city}
-          onChange={handleCityInput}
-          placeholder="City..."
-        />
-        <input
-          name="state"
-          value={state}
-          onChange={handleStateInput}
-          placeholder="State..."
-        />
-        <input
-          name="date"
-          value={date}
-          onChange={handleDateInput}
-          placeholder="Date..."
-        />
-        <input
-          name="time"
-          value={time}
-          onChange={handleTimeInput}
-          placeholder="Time..."
-        />
-      </div>
-      <div>
-        <button
-          onClick={() => {
-            createGame();
-          }}
-        >
-          Schedule Game
-        </button>
-        <button>
-          <Link to="/games">Go Back</Link>
-        </button>
+      <h1 className="sch-greeting">Let's Ball!</h1>
+      <div className="sch">
+        <div className="sch-in">
+          <input
+            name="address"
+            value={address}
+            onChange={handleAddressInput}
+            placeholder="Address..."
+          />
+          <input
+            name="city"
+            value={city}
+            onChange={handleCityInput}
+            placeholder="City..."
+          />
+          <input
+            name="state"
+            value={state}
+            onChange={handleStateInput}
+            placeholder="State..."
+          />
+          <input
+            name="date"
+            value={date}
+            onChange={handleDateInput}
+            placeholder="Date..."
+          />
+          <input
+            name="time"
+            value={time}
+            onChange={handleTimeInput}
+            placeholder="Time..."
+          />
+
+          <div className='sch-btn'>
+            <button
+              onClick={() => {
+                createGame();
+              }}
+            >
+              Schedule Game
+            </button>
+            <button>
+              <Link to="/games" className='sch-back'>Go Back</Link>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
-
 
 export default Schedule;
