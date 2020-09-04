@@ -74,6 +74,7 @@
     height: 100%;
     width: 30%;
     @include flexLayout;
+    margin-right: 20px;
   }
   .d-mo {
     text-decoration: none;
@@ -86,7 +87,8 @@
     color: $dark-yellow;
     background-color: $blue;
     @include card;
-    margin-left: 10px;
+    margin-right: 10px;
+
   }
   .nav-main {
     width: 1280px;
