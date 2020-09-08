@@ -17,6 +17,7 @@
           align-items: center;
   height: 75px;
   width: 414px;
+  border-bottom: 1px solid #116466;
 }
 
 .head-text {

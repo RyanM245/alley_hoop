@@ -25,6 +25,7 @@ const Login = (props) => {
     setPic(e.target.value);
   };
 
+
   const login = () => {
     axios
       .post("/auth/login", {
@@ -107,7 +108,7 @@ const Login = (props) => {
               onChange={handlePicInput}
             />
             <div className='aws-holder'>
-            <Aws />
+            <Aws setPic={setPic} />
             </div>
           </div>
         )}

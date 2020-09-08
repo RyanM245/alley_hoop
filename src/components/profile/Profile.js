@@ -93,7 +93,7 @@ const Profile = (props) => {
         ) : (
           <div className="pro-info">
             <div className='pro-in'>
-              <Aws/>
+            <Aws setPic={setPic} />
               <input
                 name="pic"
                 placeholder="New Profile Pic URL..."

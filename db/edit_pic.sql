@@ -1,3 +1,3 @@
 UPDATE players 
-SET pic=$1
-WHERE player_id = $2;
+SET pic=${pic}
+WHERE player_id = ${player_id};

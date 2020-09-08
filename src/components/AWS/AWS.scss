@@ -5,24 +5,34 @@
   width: 150px;
   @include flexLayout;
   flex-direction: column;
+  @include card;
+  background-color: $dark-gray;
 }
 
 .dropzone {
   width: 90px;
   height: 90px;
   border-radius: 5px;
-  border-style: dashed 2px;
-  border-color: $dark-gray;
   @include flexLayout;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $blue;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 .aws-text {
   font-size: 15px;
   @include flexLayout;
   flex-direction: column;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 .aws-holder {
   margin-top: 10px;
   @include flexLayout;
   flex-direction: column;
+}
+.dropImg{
+  border-radius: 50%;
 }
