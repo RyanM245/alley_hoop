@@ -4,9 +4,10 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 
-const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET } = process.env;
+const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET, } = process.env;
 const ctrl = require("./ctrl/ctrl");
 const authCtrl = require("./ctrl/authCtrl");
+const S3Ctrl = require('./ctrl/S3Ctrl')
 
 app.use(express.json());
 app.use(
@@ -42,5 +43,8 @@ app.post("/games/create", ctrl.create);
 app.get("/games/playergames/:id", ctrl.getPlayerGames);
 app.put("/games/player/:id", ctrl.editGame);
 app.delete("/games/player/:id", ctrl.deleteGame);
+//------------S3-------------
+app.get('/api/signs3', S3Ctrl.sign_s3);
+app.post('/player/pic',authCtrl.pic )
 
 app.listen(SERVER_PORT, () => console.log(`Connected to port ${SERVER_PORT}`));

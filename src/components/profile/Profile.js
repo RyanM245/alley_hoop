@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PlayerGames from "../playerGames/PlayerGames";
 import { loginPlayer } from "../../ducks/reducer";
 import "./Profile.css";
+import Aws from '../AWS/Aws'
 
 const Profile = (props) => {
   const [games, setGames] = useState([]);
@@ -92,6 +93,7 @@ const Profile = (props) => {
         ) : (
           <div className="pro-info">
             <div className='pro-in'>
+              <Aws/>
               <input
                 name="pic"
                 placeholder="New Profile Pic URL..."

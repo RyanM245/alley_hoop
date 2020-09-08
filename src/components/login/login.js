@@ -3,6 +3,7 @@ import axios from "axios";
 import { loginPlayer } from "../../ducks/reducer";
 import { connect } from "react-redux";
 import "./Login.css";
+import Aws from "../AWS/Aws";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -57,7 +58,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className='login'>
+    <div className="login">
       <div className="greeting">
         <h1 className="main-heading">Welcome to Alley-Hoop!</h1>
       </div>
@@ -105,6 +106,9 @@ const Login = (props) => {
               value={pic}
               onChange={handlePicInput}
             />
+            <div className='aws-holder'>
+            <Aws />
+            </div>
           </div>
         )}
         {toggle ? (

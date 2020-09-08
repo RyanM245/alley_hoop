@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Game from "../game/Game";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import './Games.css'
+import { getGame } from "../../ducks/gameReducer";
+import { connect } from "react-redux";
 
-const Games = () => {
-  const [games, setGames] = useState([]);
 
+const Games = (props) => {
   useEffect(() => {
-    axios
-      .get("/games/getall")
-      .then((res) => {
-        setGames(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+   props.getGame()
   }, []);
 
-  const mappedGames = games.map((el, i) => {
+  const mappedGames = props.gameReducer.game.map((el, i) => {
     return <Game data={el} key={i} />;
   });
-
+console.log(props)
   return (
     <div>
       <div className='game-maker'>
@@ -35,4 +28,7 @@ const Games = () => {
   );
 };
 
-export default Games;
+const mapStateToProps = (state) => state;
+// const mapStateToProps = (state) => ({player: state.reducer.player});
+
+export default connect(mapStateToProps, { getGame })(Games);

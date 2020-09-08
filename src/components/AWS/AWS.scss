@@ -1,0 +1,28 @@
+@import "../../scss/base";
+.Aws {
+  color: $light-yellow;
+  height: 150px;
+  width: 150px;
+  @include flexLayout;
+  flex-direction: column;
+}
+
+.dropzone {
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+  border-style: dashed 2px;
+  border-color: $dark-gray;
+  @include flexLayout;
+}
+.aws-text {
+  font-size: 15px;
+  @include flexLayout;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.aws-holder {
+  margin-top: 10px;
+  @include flexLayout;
+  flex-direction: column;
+}

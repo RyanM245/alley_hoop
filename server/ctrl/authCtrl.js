@@ -24,8 +24,9 @@ module.exports = {
     }
   },
   register: async (req, res) => {
+    // const propic = `https://alley-hoop.s3-us-west-1.amazonaws.com/ffba7e17-5487-4e92-9f69-54cc4b69afa2-download.png`
     const db = req.app.get("db");
-    const { username, password,email, pic } = req.body;
+    const { username, password,email,pic } = req.body;
     const existingUser = await db.check_player(username);
     if (existingUser[0]) {
       return res.status(409).send("User already exists");
@@ -67,4 +68,16 @@ module.exports = {
 
     res.status(200).send(player);
   },
+  pic: async (req,res) => {
+    const {pic}= req.body;
+    const {player_id} = req.session.user
+    const db = req.app.get("db");
+
+    await db.edit_pic({
+      pic,
+      player_id
+    })
+    req.session.user.pic = pic
+    res.sendStatus(200)
+  }
 };
