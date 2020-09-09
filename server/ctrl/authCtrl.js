@@ -26,6 +26,7 @@ module.exports = {
   register: async (req, res) => {
     // const propic = `https://alley-hoop.s3-us-west-1.amazonaws.com/ffba7e17-5487-4e92-9f69-54cc4b69afa2-download.png`
     const db = req.app.get("db");
+    const transporter = req.app.get("transporter");
     const { username, password,email,pic } = req.body;
     const existingUser = await db.check_player(username);
     if (existingUser[0]) {
@@ -34,6 +35,22 @@ module.exports = {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
     const newUser = await db.create_player([username, hash,email, pic]);
+
+    const mailOptions = {
+      from: "ryan.test245@gmail.com",
+      to: email,
+      subject: "Nice Nodemailer test",
+      text: "Hey there, it’s our first message sent with Nodemailer ;) ",
+      html: "<b>Hey there! </b><br> This is our first message sent with Nodemailer",
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log("Email sent successfully!");
+    });
+
+
     // console.log(newUser)
     req.session.user = {
       playerId: newUser[0].player_id,

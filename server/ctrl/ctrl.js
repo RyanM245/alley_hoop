@@ -1,7 +1,7 @@
 module.exports = {
   getAll: async (req, res) => {
     const db = req.app.get("db");
-    const games = await db.get_games();
+    const games = await db.get_players_games();
     res.status(200).send(games);
   },
   create: (req, res, next) => {

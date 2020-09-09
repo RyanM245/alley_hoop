@@ -8,10 +8,11 @@ const GET_GAME = "GET_GAME"
 
 export function getGame(){
     const game = axios.get("/games/getall")
+    console.log(game)
     return{
         type: GET_GAME,
         payload: game,
-    }
+      }
 }
 export default function(state = initialState, action){
     switch (action.type){

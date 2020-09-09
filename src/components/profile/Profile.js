@@ -83,8 +83,8 @@ const Profile = (props) => {
           <div className="pro-info">
             <img alt="Profile Pic" src={pic} className="pro-img" />
 
-            <h2 className='text'>Username:{username}</h2>
-            <h2 className='text'>Email:{email}</h2>
+            <h2 className='text'>Username:<h3>{username}</h3></h2>
+            <h2 className='text'>Email:<h3>{email}</h3></h2>
 
             <button onClick={() => setProToggle(!proToggle)}>
               Edit Profile

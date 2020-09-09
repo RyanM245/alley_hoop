@@ -4,12 +4,22 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 
-const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET, } = process.env;
+const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET, PASSWORD, EMAIL } = process.env;
 const ctrl = require("./ctrl/ctrl");
 const authCtrl = require("./ctrl/authCtrl");
 const S3Ctrl = require('./ctrl/S3Ctrl')
+const nodemailer = require('nodemailer')
 
 app.use(express.json());
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+         user: EMAIL,
+         pass: PASSWORD
+     }
+ });
+
 app.use(
   session({
     resave: false,
@@ -27,6 +37,7 @@ massive({
 })
   .then((db) => {
     app.set("db", db);
+    app.set("transporter", transporter)
     console.log("Connected to db");
   })
   .catch((err) => console.log(err));
