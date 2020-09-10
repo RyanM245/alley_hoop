@@ -1,14 +1,28 @@
 @import "../../scss/base";
 
-.game-holder{
-    @include flexLayout;
-    flex-direction: column;
-    @include card;
-    margin-bottom: 35px;
-    height: 175px;
-    width: 300px;
-    background-color: $blue;
+.game-holder {
+  @include flexLayout;
+  flex-direction: column;
+  @include card;
+  margin-bottom: 35px;
+  height: 275px;
+  width: 300px;
+  background-color: $blue;
 }
-.game-list{
-    margin-bottom: 3px;
+.game-list {
+  margin-bottom: 3px;
+}
+.game-id-maker {
+  width: 75%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid $light-grey;
+}
+.game-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
