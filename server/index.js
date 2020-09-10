@@ -9,8 +9,10 @@ const ctrl = require("./ctrl/ctrl");
 const authCtrl = require("./ctrl/authCtrl");
 const S3Ctrl = require('./ctrl/S3Ctrl')
 const nodemailer = require('nodemailer')
+const path = require('path')
 
 app.use(express.json());
+app.use(express.static(`${__dirname}/../build`));
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -57,5 +59,12 @@ app.delete("/games/player/:id", ctrl.deleteGame);
 //------------S3-------------
 app.get('/api/signs3', S3Ctrl.sign_s3);
 app.post('/player/pic',authCtrl.pic )
+
+//-------Hosting-----------
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
+
 
 app.listen(SERVER_PORT, () => console.log(`Connected to port ${SERVER_PORT}`));
